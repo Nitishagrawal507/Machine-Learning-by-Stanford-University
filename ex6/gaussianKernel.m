@@ -15,8 +15,9 @@ sim = 0;
 %               sigma
 %
 %
-
-
+diff = x1 - x2;
+sqDiff = diff.^2;
+sim = exp(-sum(sqDiff)/(2*sigma*sigma));
 
 
 
