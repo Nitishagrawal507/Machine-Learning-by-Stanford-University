@@ -1,37 +1,26 @@
-function [J, grad] = linearRegCostFunction(X, y, theta, lambda)
-%LINEARREGCOSTFUNCTION Compute cost and gradient for regularized linear 
-%regression with multiple variables
-%   [J, grad] = LINEARREGCOSTFUNCTION(X, y, theta, lambda) computes the 
-%   cost of using theta as the parameter for linear regression to fit the 
-%   data points in X and y. Returns the cost in J and the gradient in grad
+function [X_poly] = polyFeatures(X, p)
+%POLYFEATURES Maps X (1D vector) into the p-th power
+%   [X_poly] = POLYFEATURES(X, p) takes a data matrix X (size m x 1) and
+%   maps each example into its polynomial features where
+%   X_poly(i, :) = [X(i) X(i).^2 X(i).^3 ...  X(i).^p];
+%
 
-% Initialize some useful values
-m = length(y); % number of training examples
 
-% You need to return the following variables correctly 
-J = 0;
-grad = zeros(size(theta));
+% You need to return the following variables correctly.
+X_poly = zeros(numel(X), p);
 
 % ====================== YOUR CODE HERE ======================
-% Instructions: Compute the cost and gradient of regularized linear 
-%               regression for a particular choice of theta.
+% Instructions: Given a vector X, return a matrix X_poly where the p-th 
+%               column of X contains the values of X to the p-th power.
 %
-%               You should set J to the cost and grad to the gradient.
-%
+% 
 
+for i = 1:p
+	X_poly(:,i) = X.^i;
 
-
-
-
-
-
-
-
-
+end
 
 
 % =========================================================================
-
-grad = grad(:);
 
 end
